@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import Link from "next/link";
@@ -29,10 +29,21 @@ export default function Layout({ children }) {
 }
 
 const NavLink = ({ href, children }) => {
-  const { asPath, pathname } = useRouter();
-  console.log({ asPath, pathname, href });
+  // We only need a setter to cause a re-render
+  const [ariaCurrent, setAriaCurrent] = useState();
 
-  const ariaCurrent = href === asPath ? "page" : undefined;
+  const { asPath } = useRouter();
+
+  useEffect(() => {
+    const ariaCurrent = href === asPath ? "page" : undefined;
+
+    /* You could even create your own custom hook,
+     * for e.g. `useForceUpdate()` if you like
+     *
+     * Calling the setter, would cause a re-render
+     */
+    setAriaCurrent(ariaCurrent);
+  }, [asPath, href]);
 
   return (
     <Link href={href}>
