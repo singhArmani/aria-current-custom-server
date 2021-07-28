@@ -1,5 +1,5 @@
 ## What this is about?
-As described in my blog article about [using aria-current for active nav links](), this code demonstrates how our first solution could lead to a bug when using dynamic routes in a custom server setup. 
+As described in my blog article about [using aria-current for active nav links](https://amanexplains.com/using-aria-current-for-nav-links/), this code demonstrates how our first solution could lead to a bug when using dynamic routes in a custom server setup. 
 
 ## Using aria-current attribute in our active page links
 
